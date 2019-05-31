@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title></title>
+</head>
+<script type="text/javascript">
+    function init(){
+        //页面键盘点击时触发
+        document.onkeydown=showKeyDown;
+    }
+    function showKeyDown(evt){
+        evt = (evt) ? evt : window.event ;
+
+        if(evt.keyCode==38){
+            fun1(); 
+        }
+        if(evt.keyCode==40){
+            fun2(); 
+        }
+    }
+    function fun1(){
+        alert("功能一测试");
+    }
+    function fun2(){
+        alert("功能二测试");
+    }
+
+</script>
+<body onload="init()">
+    <div align="center">
+        <p>说明：键盘"上"为功能一测试</p>
+        <p>键盘"下"为功能二测试</p>
+        <button onclick="fun1()">功能一测试</button>
+        <button onclick="fun2()">功能二测试</button>
+    </div>
+
+</body>
+</html>

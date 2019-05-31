@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{padding:0;margin:0;}
+        /* html, body {
+            height: 100%;
+        } */
+
+        .footer {
+            margin-top: -50px;
+            height: 50px;
+            background-color: #eee;
+            z-index: 9999;
+        }
+
+        #parent{
+            width:600px;
+            height:600px;
+            /* border:1px solid red; */
+            margin:0 auto;
+            margin-top: 150px;
+        }
+
+
+        #imgBox{
+            width:600px;
+            height:100%;
+            position:relative;/*必须有===*/
+            overflow:hidden;/*必须有===*/
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            margin-top: 50px;
+            /* border:1px solid burlywood; */
+        }
+        ul{
+            /*动画就是改变ul的left值的效果，所以一定要有定位*/
+            position:absolute;/*必须有*/
+            left:0;/*必须有*/
+
+        }
+        li{list-style: none;/*必须有*/
+            height:100%;/*必须有*/
+            width:600px;/*必须有*/
+            float:left;/*必须有*/
+        }
+        .span{
+            display:inline-block;
+            width:20px;
+            height:20px;
+            line-height:20px;
+            text-align: center;
+            border-radius:50%;
+            color:white;
+        }
+
+        .box{
+            display: flex;
+            justify-content: space-between;
+            margin: 10px;
+        }
+        .center-box{
+            /* display: flex;
+            justify-content: center; */
+            /* width: 600px; */
+            text-align: center;
+        }
+        .between-box{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .div{
+            padding-left: 25%;
+            padding-right: 25%;
+            padding-top: 100px;
+        }
+        .box-text{
+            padding-top: 50px;
+        }
+        .box-p{
+            color: #777777;
+            line-height:30px;
+        }
+        .box-p-small{
+            color: #999999;
+            font-size: x-small;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body onload="init()">
+        
+        
+        <div id="parent">
+            <h3>WORLD / WORD</h3>
+            <div id="imgBox">
+                <ul id='ul'>
+                    <li>
+                        <div class="box-text">
+                            <p class="box-p">一个摄影师在可可西里见到一只来打招呼的小藏羚羊，便喂它喝水。 突然旁边的藏羚羊保护队队长很凶蛮地把小羚羊赶跑了。 摄影师问他为什么这么做， 他回答说：你这样会让它们以为人类是善良的。</p>
+                            <p class="box-p-small">网易云 / 2019.5.30</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="box-text">
+                            <div class="between-box">
+                                <div class="center-box">
+                                    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559309066449&di=e6aaf43c146a4e10b03fe3c92e416229&imgtype=0&src=http%3A%2F%2Ft7.baidu.com%2Fit%2Fu%3D2051397837%2C1138347655%26fm%3D191%26app%3D48%26wm%3D1%2C13%2C90%2C45%2C0%2C7%26wmo%3D10%2C10%26n%3D0%26g%3D0n%26f%3DJPEG%3Fsec%3D1853310920%26t%3D5a8188779770ab24d20e2f7cdd1ab559" alt="" style="width: 300px;margin-bottom: 20px">
+                                </div>
+                                <div style="margin-top: 50px;margin-left: 20px">
+                                    <p class="box-p" >一个摄影师在可可西里见到一只来打招呼的小藏羚羊，便喂它喝水。 突然旁边的藏羚羊保护队队长很凶蛮地把小羚羊赶跑了。 摄影师问他为什么这么做， 他回答说：你这样会让它们以为人类是善良的。</p> 
+                                    <p class="box-p-small">网易云 2019.5.30</p>
+                                </div>
+                                                                                     
+                            </div>
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <div class="box-text">
+                            <div class="center-box">
+                                <img src="img/xiaoerban.jpg" alt="" style="width: 600px;margin-bottom: 20px">
+                            </div>
+                            <p class="box-p">一个摄影师在可可西里见到一只来打招呼的小藏羚羊，便喂它喝水。 突然旁边的藏羚羊保护队队长很凶蛮地把小羚羊赶跑了。 摄影师问他为什么这么做， 他回答说：你这样会让它们以为人类是善良的。</p>                            
+                            <p class="box-p-small">网易云 2019.5.30</p>
+                        </div>                     
+                    <li>
+                        <div class="box-text">
+                            <p class="box-p">一个摄影师在可可西里见到一只来打招呼的小藏羚羊，便喂它喝水。 突然旁边的藏羚羊保护队队长很凶蛮地把小羚羊赶跑了。 摄影师问他为什么这么做， 他回答说：你这样会让它们以为人类是善良的。</p>
+                            <p class="box-p">一个摄影师在可可西里见到一只来打招呼的小藏羚羊，便喂它喝水。 突然旁边的藏羚羊保护队队长很凶蛮地把小羚羊赶跑了。 摄影师问他为什么这么做， 他回答说：你这样会让它们以为人类是善良的。</p>
+                            <p class="box-p">一个摄影师在可可西里见到一只来打招呼的小藏羚羊，便喂它喝水。 突然旁边的藏羚羊保护队队长很凶蛮地把小羚羊赶跑了。 摄影师问他为什么这么做， 他回答说：你这样会让它们以为人类是善良的。</p>
+                            
+                            <p class="box-p-small">网易云 2019.5.30</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="box-text">
+                            <p class="box-p">一个摄影师在可可西里见到一只来打招呼的小藏羚羊，便喂它喝水。 突然旁边的藏羚羊保护队队长很凶蛮地把小羚羊赶跑了。 摄影师问他为什么这么做， 他回答说：你这样会让它们以为人类是善良的。</p>
+                            <p class="box-p-small">网易云 2019.5.30</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="box-text">
+                            <p class="box-p">一个摄影师在可可西里见到一只来打招呼的小藏羚羊，便喂它喝水。 突然旁边的藏羚羊保护队队长很凶蛮地把小羚羊赶跑了。 摄影师问他为什么这么做， 他回答说：你这样会让它们以为人类是善良的。</p>
+                            <p class="box-p-small">网易云 2019.5.30</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- <div class="box">
+                <a href="#" id="prev">PREV</a>
+                
+                <a href="#" id="next">NEXT</a>
+            </div> -->
+            <!-- 放小圆点的盒子-->
+            <div id="arcBox" class="box"> 
+                <!-- 小圆点的位置 -->
+            </div>
+        </div>
+      
+<script>
+
+    
+
+
+    var chefElement = {
+        bgColor1:'#ffffff',//小圆点的背景颜色
+        bgColor2:'#ffffff',//获得焦点的小圆点的背景颜色
+        animationSpeed:1, //每多少毫秒移动一次
+        minSpeed:8,//每次移动的距离
+        stopTime:1000*60*60*24, //动画停留的时间，毫秒为单位 包含移动所花费的时间
+
+        //获取页面元素
+        prev:document.getElementById('prev'),
+        next:document.getElementById('next'),
+        parent:document.getElementById('parent'),
+        ul:document.getElementById('ul'),
+        li:document.getElementById('ul').getElementsByTagName('li'),
+        arc:document.getElementById("arcBox"),
+        liWidth:document.getElementById('ul').getElementsByTagName('li')[0].offsetWidth,
+        type:true,
+        nextTimer:null,
+        prevTimer:null,
+        parent_n:null
+    };
+
+    function init(){
+        //页面键盘点击时触发
+        document.onkeydown=showKeyDown;
+    }
+    function showKeyDown(evt){
+        evt = (evt) ? evt : window.event ;
+
+        if(evt.keyCode==37){
+            left(); 
+        }
+        if(evt.keyCode==39){
+            right(); 
+        }
+    }
+
+    //初始化小圆点/指定放图片的盒子 ul 的宽度
+    var elemSpan = (function(){
+        chefElement.ul.style.width = chefElement.liWidth*chefElement.li.length+'px';
+        for(var i = 0;i<chefElement.li.length;i++){
+            chefElement.li[i].index = i;
+            var span = document.createElement('span');
+                span.className = 'span';
+                span.index = i;
+                span.style.background = chefElement.bgColor1;
+                span.innerHTML = i+1;
+            chefElement.arc.appendChild(span);
+        }
+        var objSpan = chefElement.arc.getElementsByTagName('span');
+
+        //创建完以后第一个小圆点显示指定的颜色
+        objSpan[0].style.background = chefElement.bgColor2;
+        return objSpan;
+    })();
+
+    //给每个小圆点添加事件
+    chefElement.arc.onmouseover = function(ev){
+        var ev = ev || window.event;
+        var target = ev.target || ev.srcElement;
+        if(target.nodeName.toLowerCase() == "span"){
+            if(chefElement.type){
+                showImg(target.index);
+                changeBackgroundColor(target)
+                chefElement.type = true;
+            }
+        }
+    }
+
+    //改变小圆点的背景颜色
+    function changeBackgroundColor(obj){
+        for(var i = 0;i<elemSpan.length;i++){
+            elemSpan[i].style.background = chefElement.bgColor1;
+        }
+        elemSpan[obj.index].style.background = chefElement.bgColor2;
+
+    }
+
+    //根据参数显示对应的图片。
+    function showImg(inde){
+        var this_li = chefElement.li[0].index;
+
+        //把第一个元素放到最后面。
+        if(inde>this_li){
+            var x = inde-this_li;
+            for(var y = 0;y<x;y++){
+                chefElement.ul.appendChild(chefElement.li[0]);
+            }
+        }
+
+        //把最后一个元素放到第一的位置
+        if(inde<this_li){
+            var x_x = this_li-inde;
+            for(var g = 0;g<x_x;g++){
+                chefElement.ul.insertBefore(chefElement.li[chefElement.li.length-1],chefElement.li[0]);
+            }
+        }
+    }
+
+    chefElement.prev.onclick = function(){
+        if(chefElement.type){
+            clearInterval(chefElement.prevTimer);
+            chefElement.ul.insertBefore(chefElement.li[chefElement.li.length-1],chefElement.li[0]);
+            chefElement.liWidth = chefElement.li[0].offsetWidth;
+            chefElement.ul.style.left = '-'+chefElement.liWidth+'px';
+            chefElement.prevTimer = setInterval(pre,chefElement.animationSpeed);
+            chefElement.type = false;
+            changeBackgroundColor(chefElement.li[0]);
+        }
+    };
+    next.onclick = function(){
+        if(chefElement.type){
+            chefElement.liWidth = 0;
+            clearInterval(chefElement.nextTimer);
+            chefElement.nextTimer = setInterval(nex,chefElement.animationSpeed);
+            chefElement.type = false;
+            changeBackgroundColor(chefElement.li[1]);
+        }
+    };
+
+    function left(){
+        if(chefElement.type){
+            clearInterval(chefElement.prevTimer);
+            chefElement.ul.insertBefore(chefElement.li[chefElement.li.length-1],chefElement.li[0]);
+            chefElement.liWidth = chefElement.li[0].offsetWidth;
+            chefElement.ul.style.left = '-'+chefElement.liWidth+'px';
+            chefElement.prevTimer = setInterval(pre,chefElement.animationSpeed);
+            chefElement.type = false;
+            changeBackgroundColor(chefElement.li[0]);
+        }
+    };
+
+    function right(){
+        if(chefElement.type){
+            chefElement.liWidth = 0;
+            clearInterval(chefElement.nextTimer);
+            chefElement.nextTimer = setInterval(nex,chefElement.animationSpeed);
+            chefElement.type = false;
+            changeBackgroundColor(chefElement.li[1]);
+        }
+    };
+
+    //next动画函数
+    function nex(){
+        chefElement.ul.style.left = '-'+chefElement.liWidth+ 'px';
+        chefElement.liWidth += chefElement.minSpeed ;
+        if(chefElement.liWidth >= chefElement.li[0].offsetWidth){
+            clearInterval(chefElement.nextTimer);
+            chefElement.ul.appendChild(chefElement.li[0]);
+            chefElement.ul.style.left = 0;
+            chefElement.type = true;
+        }
+    }
+
+    //prev动画函数
+    function pre(){
+        chefElement.ul.style.left = '-'+chefElement.liWidth+'px';
+        chefElement.liWidth -= chefElement.minSpeed ;
+        if(chefElement.liWidth <= -1){
+            chefElement.ul.style.left = 0;
+            clearInterval(chefElement.prevTimer);
+            chefElement.type = true;
+        }
+    }
+
+    chefElement.parent.onmouseover = function(){
+        clearInterval(chefElement.parent_n);
+    };
+    chefElement.parent.onmouseout = function(){
+        chefElement.parent_n = setInterval(next.onclick,chefElement.stopTime);
+    };
+
+    //动画播放
+    chefElement.parent_n = setInterval(next.onclick,chefElement.stopTime);
+</script>
+</body>
+</html>
