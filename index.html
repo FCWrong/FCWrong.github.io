@@ -126,8 +126,9 @@
         .radio{
             color: white;
             border-radius: 0px;
-            padding-left: 5px;
-            padding-right: 5px
+            /* padding-left: 10px;
+            padding-right: 10px */
+            padding: 2px 10px;
         }
     </style>
 </head>
@@ -137,7 +138,7 @@
 
     <div id="parent">
         <!-- <h3>WORLD / MOVIE / MUSIC</h3> -->
-        <div style="font-size: 18px;">
+        <div style="font-size: 16px;">
                 <span style="background-color: blue;" class="radio"><b>WORD</b></span>
                 <span style="background-color: green;" class="radio"><b>MOVIE</b></span>
                 <span style="background-color: red;" class="radio"><b>MUSIC</b>
@@ -151,14 +152,30 @@
         </div>
         <div id="imgBox">
             <ul id='ul'>
+                    <li>
+                            <div class="box-text">
+                                <div class="between-box">
+                                    <div class="center-box">
+                                        <img src="img/3.jpg" alt="" class="box-pic" style="width: 300px;margin-bottom: 20px">
+                                    </div>
+                                    <div style="margin-top: 50px;margin-left: 20px">
+                                        <p class="box-p">Alex的眼神纯净的如一瓢没有被污染过的水。 当他最后完成多年以来的梦想的那一刻，停不下来的笑着：“I feel like never
+                                            smile so much before”.</p>
+                                        <p class="box-p-small">豆瓣 「徒手攀岩」@ Bio Roy / 2019.5.30</p>
+                                    </div>
+        
+                                </div>
+        
+                            </div>
+                        </li>
                 <li>
-                    <div class="box-text">
-                        <div class="center-box">
+                    <div class="box-text">       
+                        <div>
                             <img src="https://img3.doubanio.com/view/photo/l/public/p1047554532.webp" alt=""
                                 class="box-pic" style="width: 600px;margin-bottom: 20px">
                         </div>
                         <p class="box-p">每个人都是一条鱼，他们横跨大海，是为了相遇</p>
-                        <p class="box-p-small">「大鱼.海棠」 / 2019.6.2</p>
+                        <p class="box-p-small">「大鱼.海棠」 / 2019.6.2</p>    
                     </div>
                 </li>
                 <li>
@@ -186,22 +203,7 @@
                         <p class="box-p-small">「梁祝」 / 2019.6.1</p>
                     </div>
                 </li>
-                <li>
-                    <div class="box-text">
-                        <div class="between-box">
-                            <div class="center-box">
-                                <img src="img/3.jpg" alt="" class="box-pic" style="width: 300px;margin-bottom: 20px">
-                            </div>
-                            <div style="margin-top: 50px;margin-left: 20px">
-                                <p class="box-p">Alex的眼神纯净的如一瓢没有被污染过的水。 当他最后完成多年以来的梦想的那一刻，停不下来的笑着：“I feel like never
-                                    smile so much before”.</p>
-                                <p class="box-p-small">豆瓣 「徒手攀岩」@ Bio Roy / 2019.5.30</p>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </li>
+                
                 <li>
                     <div class="box-text">
                         <div class="center-box">
@@ -227,7 +229,8 @@
         </div>
     </div>
 
-    <script>
+    <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <script type="text/javascript">
 
 
 
@@ -237,7 +240,7 @@
             bgColor2: '#ffffff',//获得焦点的小圆点的背景颜色
             animationSpeed: 1, //每多少毫秒移动一次
             minSpeed: 8,//每次移动的距离
-            stopTime: 1000 * 60 * 60 * 24, //动画停留的时间，毫秒为单位 包含移动所花费的时间
+            stopTime: 1000 ,//* 60 * 60 * 24, //动画停留的时间，毫秒为单位 包含移动所花费的时间
 
             //获取页面元素
             prev: document.getElementById('prev'),
@@ -247,6 +250,7 @@
             li: document.getElementById('ul').getElementsByTagName('li'),
             arc: document.getElementById("arcBox"),
             liWidth: document.getElementById('ul').getElementsByTagName('li')[0].offsetWidth,
+            dayu:document.getElementById('dayu'),
             type: true,
             nextTimer: null,
             prevTimer: null,
@@ -256,6 +260,7 @@
         function init() {
             //页面键盘点击时触发
             document.onkeydown = showKeyDown;
+            // jietu();
         }
         function showKeyDown(evt) {
             evt = (evt) ? evt : window.event;
@@ -328,6 +333,10 @@
                     chefElement.ul.insertBefore(chefElement.li[chefElement.li.length - 1], chefElement.li[0]);
                 }
             }
+        }
+
+        dayu.onclick=function(){
+            window.open("https://movie.douban.com/subject/5045678")
         }
 
         chefElement.prev.onclick = function () {
@@ -405,6 +414,80 @@
 
         //动画播放
         chefElement.parent_n = setInterval(next.onclick, chefElement.stopTime);
+
+
+        ////////////////// jietu  /////////////////
+
+        
+
+            // body截图
+            // html2canvas(document.body).then(function(canvas) {
+            //     document.body.appendChild(canvas);
+            // });
+
+            
+            function jietu(){
+                var oDiv = document.getElementById('eee');
+                html2canvas(oDiv).then(function(canvas) {
+                    document.body.appendChild(canvas);
+                    var oCavans = document.getElementsByTagName('canvas')[0];
+                    var strDataURI = oCavans.toDataURL();
+                    downLoadFn(strDataURI);
+                });
+            }
+
+            //判断浏览器类型
+            function myBrowser() {
+                var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+                var isOpera = userAgent.indexOf("Opera") > -1;
+                if(isOpera) {
+                    return "Opera"
+                }; //判断是否Opera浏览器
+                if(userAgent.indexOf("Firefox") > -1) {
+                    return "FF";
+                } //判断是否Firefox浏览器
+                if(userAgent.indexOf("Chrome") > -1) {
+                    return "Chrome";
+                }
+                if(userAgent.indexOf("Safari") > -1) {
+                    return "Safari";
+                } //判断是否Safari浏览器
+                if(userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) {
+                    return "IE";
+                }; //判断是否IE浏览器
+                if(userAgent.indexOf("Trident") > -1) {
+                    return "Edge";
+                } //判断是否Edge浏览器
+            }
+
+            //IE浏览器图片保存本地
+            function SaveAs5(imgURL) {
+                var oPop = window.open(imgURL, "", "width=1, height=1, top=5000, left=5000");
+                for(; oPop.document.readyState != "complete";) {
+                    if(oPop.document.readyState == "complete") break;
+                }
+                oPop.document.execCommand("SaveAs");
+                oPop.close();
+            }
+
+            // chrome14+,firefox20+,pera15+,Edge 13+,Safari未实现
+            function download(strDataURI) {
+                var link = document.createElement('a');
+                link.innerHTML = 'download_canvas_image';
+                link.download = 'mypainting.png';
+                link.addEventListener('click', function(ev) {
+                    link.href = strDataURI;
+                }, false);
+                document.body.appendChild(link);
+            };
+
+            function downLoadFn(url) {
+                if(myBrowser() === "IE" || myBrowser() === "Edge") {
+                    SaveAs5(url);
+                } else {
+                    download(url);
+                }
+            }
     </script>
 </body>
 
